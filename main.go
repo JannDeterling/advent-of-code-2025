@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/JannDeterling/advent-of-code-2025/internal/day1"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	day1.RunPart2()
 }
