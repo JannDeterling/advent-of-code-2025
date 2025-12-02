@@ -3,10 +3,12 @@ package day1
 import (
 	"fmt"
 	"strconv"
+
+	"github.com/JannDeterling/advent-of-code-2025/internal/util"
 )
 
 func RunPart2() {
-	inputs := readInput("./input/day1.txt")
+	inputs := util.ReadInput("./input/day1.txt")
 	fmt.Printf("Input Lenght %d\n", len(inputs))
 	var currentLockIndex int = 50
 	password := 0

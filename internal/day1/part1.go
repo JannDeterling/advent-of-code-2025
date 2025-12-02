@@ -1,14 +1,13 @@
 package day1
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
+	"github.com/JannDeterling/advent-of-code-2025/internal/util"
 )
 
 func TestPart1() {
-	inputs := readInput("./input/day1-test.txt")
+	inputs := util.ReadInput("./input/day1-test.txt")
 	fmt.Printf("Input Lenght %d\n", len(inputs))
 	var currentLockIndex int = 50
 	password := 0
@@ -24,7 +23,7 @@ func TestPart1() {
 
 func RunPart1() {
 
-	inputs := readInput("./input/day1.txt")
+	inputs := util.ReadInput("./input/day1.txt")
 	fmt.Printf("Input Lenght %d\n", len(inputs))
 	var currentLockIndex int = 50
 	password := 0
@@ -64,17 +63,4 @@ func moveLock(input string, currentLockIndex int) int {
 		newIndex = newIndex + 1 + 99
 	}
 	return newIndex
-}
-
-func readInput(path string) []string {
-	file, err := os.Open(path)
-	if err != nil {
-		panic(err)
-	}
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-	return lines
 }
