@@ -24,11 +24,11 @@ func ReadCommaSeparatedInput(path string) []string {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	var lines []string
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		for _, value := range strings.Split( scanner.Text(), ",") {
+		for _, value := range strings.Split(scanner.Text(), ",") {
 			lines = append(lines, value)
 		}
 	}

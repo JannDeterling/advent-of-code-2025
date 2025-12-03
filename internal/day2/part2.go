@@ -2,8 +2,8 @@ package day2
 
 import (
 	"fmt"
-	"strconv"
 	"github.com/JannDeterling/advent-of-code-2025/internal/util"
+	"strconv"
 )
 
 func RunPart2() {
@@ -31,7 +31,7 @@ func IsStrictlyValid(id string) bool {
 	pattern := ""
 
 	for i, char := range id {
-		if i < len(id) /2 {
+		if i < len(id)/2 {
 			pattern += string(char)
 			if containsOnly(id, pattern) {
 				return false
@@ -44,10 +44,10 @@ func IsStrictlyValid(id string) bool {
 func containsOnly(source string, pattern string) bool {
 	sourceLenght := len(source)
 	patternLenght := len(pattern)
-	if sourceLenght % patternLenght != 0 {
+	if sourceLenght%patternLenght != 0 {
 		return false
-		} else {
-			for i := 0; i < sourceLenght; i += patternLenght {
+	} else {
+		for i := 0; i < sourceLenght; i += patternLenght {
 			if pattern != source[i:i+patternLenght] {
 				return false
 			}
@@ -55,4 +55,3 @@ func containsOnly(source string, pattern string) bool {
 	}
 	return true
 }
-

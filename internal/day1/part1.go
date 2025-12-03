@@ -2,8 +2,8 @@ package day1
 
 import (
 	"fmt"
-	"strconv"
 	"github.com/JannDeterling/advent-of-code-2025/internal/util"
+	"strconv"
 )
 
 func TestPart1() {
