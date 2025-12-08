@@ -1,15 +1,8 @@
 package main
 
 import (
-	// "github.com/JannDeterling/advent-of-code-2025/internal/day1"
-	// "github.com/JannDeterling/advent-of-code-2025/internal/day2"
-	// "github.com/JannDeterling/advent-of-code-2025/internal/day3"
-	// "github.com/JannDeterling/advent-of-code-2025/internal/day4"
-	// "github.com/JannDeterling/advent-of-code-2025/internal/day5"
-	// "github.com/JannDeterling/advent-of-code-2025/internal/day6"
-	"github.com/JannDeterling/advent-of-code-2025/internal/day7"
+	"github.com/JannDeterling/advent-of-code-2025/internal/day8"
 )
-
 
 func main() {
 	// day1.RunPart1()
@@ -23,5 +16,7 @@ func main() {
 	// day5.RunPart2()
 	// day6.RunPart1()
 	// day6.RunPart2()
-	day7.RunPart1()
+	//day7.RunPart1()
+	day8.RunPart1()
+	day8.RunPart2()
 }
