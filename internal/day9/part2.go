@@ -100,7 +100,6 @@ func buildPossibleRectanglesWithBoundries(points Points, boundries Lines) Rectan
 	for _, p1 := range points {
 		for _, p2 := range points {
 			if p1 != p2 && p1.X != p2.X && p1.Y != p2.Y {
-				fmt.Printf("%+v\n", Rectangle{P1: p1, P2: p2})
 				key := fmt.Sprintf("%+v-%+v", p1, p2)
 				reverseKey := fmt.Sprintf("%+v-%+v", p2, p1)
 				if !memo[key] && !memo[reverseKey] {
@@ -112,6 +111,10 @@ func buildPossibleRectanglesWithBoundries(points Points, boundries Lines) Rectan
 						rectangles = append(rectangles, Rectangle{P1: p1, P2: p2, Area: line1 * line2})
 						memo[key] = true
 						memo[reverseKey] = true
+						fmt.Printf("inside boundries: %+v\n", optRect)
+					} else {
+						fmt.Printf("Not inside boundries: %+v\n", optRect)
+						optRect.render(boundries)
 					}
 				}
 			}
@@ -157,11 +160,11 @@ func (r Rectangle) isInsideBoundries(boundries Lines) bool {
 func (p Point) isInsideBoundries(boundries Lines) bool {
 	inside := false
 	for _, boundry := range boundries {
-		if p.Y > min(boundry.P1.Y, boundry.P2.Y) && p.Y < max(boundry.P1.Y, boundry.P2.Y) {
+		if p.Y >= min(boundry.P1.Y, boundry.P2.Y) && p.Y <= max(boundry.P1.Y, boundry.P2.Y) {
 			if p.X <= max(boundry.P1.X, boundry.P2.X) {
 				var xinters int
 				if boundry.P1.Y != boundry.P2.Y {
-					xinters = (p.Y-boundry.P1.Y)*(boundry.P1.X-boundry.P2.X)/(boundry.P2.Y-boundry.P1.Y) + boundry.P1.X
+					xinters = (p.Y-boundry.P1.Y)*(boundry.P2.X-boundry.P1.X)/(boundry.P2.Y-boundry.P1.Y) + boundry.P1.X
 				}
 				if boundry.P1.Y != boundry.P2.Y || p.X <= xinters {
 					inside = !inside
@@ -169,6 +172,7 @@ func (p Point) isInsideBoundries(boundries Lines) bool {
 			}
 		}
 	}
+	fmt.Printf("Point %v is inside boundries: %v\n", p, inside)
 	return inside
 }
 
