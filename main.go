@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/JannDeterling/advent-of-code-2025/internal/day8"
-)
+import "github.com/JannDeterling/advent-of-code-2025/internal/day9"
 
 func main() {
 	// day1.RunPart1()
@@ -17,6 +15,7 @@ func main() {
 	// day6.RunPart1()
 	// day6.RunPart2()
 	//day7.RunPart1()
-	day8.RunPart1()
-	day8.RunPart2()
+	//day8.RunPart1()
+	//day8.RunPart2()
+	day9.RunPart2()
 }

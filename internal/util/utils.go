@@ -3,6 +3,7 @@ package util
 import (
 	"bufio"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -33,4 +34,12 @@ func ReadCommaSeparatedInput(path string) []string {
 		}
 	}
 	return lines
+}
+
+func ToInt(in string) int {
+	value, err := strconv.Atoi(in)
+	if err != nil {
+		panic(err)
+	}
+	return value
 }

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math"
 	"slices"
-	"strconv"
 	"strings"
 
 	"github.com/JannDeterling/advent-of-code-2025/internal/util"
@@ -116,22 +115,14 @@ func distanceBetween(p1 Coordinate, p2 Coordinate) float64 {
 	)
 }
 
-func toInt(in string) int {
-	value, err := strconv.Atoi(in)
-	if err != nil {
-		panic(err)
-	}
-	return value
-}
-
 func createCoordinates(input []string) []Coordinate {
 	coordinates := []Coordinate{}
 	for _, line := range input {
 		split := strings.Split(line, ",")
 		coordinates = append(coordinates, Coordinate{
-			X: toInt(split[0]),
-			Y: toInt(split[1]),
-			Z: toInt(split[2]),
+			X: util.ToInt(split[0]),
+			Y: util.ToInt(split[1]),
+			Z: util.ToInt(split[2]),
 		})
 	}
 	return coordinates
@@ -141,10 +132,11 @@ func RunPart1() {
 	input := util.ReadInput("./input/day8.txt")
 	coordinates := createCoordinates(input)
 	junctionBoxes := createJunctionBoxes(coordinates)
-	circuits := connectJunctionBoxes(junctionBoxes, 1000)
+	circuits := connectJunctionBoxes(junctionBoxes, 10)
 	slices.SortFunc(circuits, func(a, b Circuit) int {
 		return len(b) - len(a)
 	})
+	fmt.Printf("%+v\n", circuits)
 	fmt.Printf("----------------------------------------\n")
 	fmt.Printf("%d\n", len(circuits[0]))
 	fmt.Printf("%d\n", len(circuits[1]))
